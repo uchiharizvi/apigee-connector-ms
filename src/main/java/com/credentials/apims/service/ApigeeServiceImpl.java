@@ -19,7 +19,7 @@ public class ApigeeServiceImpl implements ApigeeService {
 
     @Override
     public ResponseEntity<String> createProduct(ProductRequest productRequest, String organizationName) {
-        ResponseEntity<String> message = restTemplate.exchange("https://api.enterprise.apigee.com/v1/organizations/" + organizationName + "apiproducts",
+        ResponseEntity<String> message = restTemplate.exchange("https://api.enterprise.apigee.com/v1/organizations/" + organizationName + "/apiproducts",
                 HttpMethod.POST, requestEntity(productRequest), String.class);
         return new ResponseEntity<>("API Product Created", HttpStatus.CREATED);
     }
@@ -27,7 +27,7 @@ public class ApigeeServiceImpl implements ApigeeService {
     private HttpEntity<?> requestEntity(ProductRequest productRequest) {
 
         HttpHeaders headers = new HttpHeaders();
-        headers.setBasicAuth("");
+        headers.set("Authorization","Basic cml6dmlrYXZpc2gyMDVAZ21haWwuY29tOkFwcGxlaXBob25lQDEz");
         headers.setContentType(MediaType.APPLICATION_JSON);
         return new HttpEntity<>(productRequest, headers);
     }

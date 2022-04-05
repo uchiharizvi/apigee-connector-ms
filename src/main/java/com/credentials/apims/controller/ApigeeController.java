@@ -20,7 +20,7 @@ public class ApigeeController {
 
     @PostMapping("/product/create")
     public ResponseEntity<String> createProduct(@RequestBody ProductRequest productRequest) {
-        String organizationName = "";
+        String organizationName = "rizvikavish205-eval";
         return apigeeService.createProduct(productRequest, organizationName);
     }
 
