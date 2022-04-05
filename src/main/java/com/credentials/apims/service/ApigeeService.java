@@ -7,7 +7,7 @@ import org.springframework.http.ResponseEntity;
 public interface ApigeeService {
     ProductResponse getData();
 
-    ResponseEntity<String> createProduct(ProductRequest productRequest, String organizationName);
+    ResponseEntity<String> createProduct(ProductRequest productRequest);
 
     ProductResponse createProxy();
 
